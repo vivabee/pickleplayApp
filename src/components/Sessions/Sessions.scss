@@ -1,0 +1,65 @@
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+.session-container {
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.session-title {
+  font-size: 24px; // Increased font size
+  font-weight: bold; // Added font weight
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+
+  svg {
+    margin-right: 5px;
+  }
+}
+
+.session-info {
+  font-size: 16px; // Increased font size
+  color: #666;
+}
+
+.session-button {
+  padding: 10px 20px; // Increased padding
+  font-size: 16px;
+  border: none;
+  border-radius: 5px; // Increased border-radius
+  cursor: pointer;
+  background-color: #007bff; // Changed button background color
+  color: #fff; // Changed button text color
+  margin-top: 10px; // Added margin-top
+  transition: background-color 0.3s ease; // Added transition effect
+
+  &:hover {
+    background-color: #0056b3; // Changed button background color on hover
+  }
+}
+
+@media (min-width: 768px) {
+  .session-container {
+    padding: 20px; // Increased padding
+    margin-bottom: 20px; // Increased margin-bottom
+  }
+
+  .session-title {
+    font-size: 24px; // Increased font size
+  }
+
+  .session-info {
+    font-size: 18px; // Increased font size
+  }
+
+  .session-button {
+    padding: 12px 24px; // Increased padding
+    font-size: 18px; // Increased font size
+  }
+}
