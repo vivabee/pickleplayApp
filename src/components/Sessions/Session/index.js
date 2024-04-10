@@ -62,16 +62,16 @@ export default function Session(props) {
             <div className="session-info">
                 <p className="label">Players: </p>
                 <div className="value">
-                <ul className="player-list">
-    {props.session.players.map((player, index) => (
-        <li key={index} className="player-item">
-            <div className="player-info">
-                {player}
-            </div>
-            <img src={playerImg} alt={`${player} Avatar`} className="player-avatar" />
-        </li>
-    ))}
-</ul>
+                    <ul className="player-list">
+                        {props.session.players ? props.session.players.map((player, index) => (
+                            <li key={index} className="player-item">
+                                <div className="player-info">
+                                    {player}
+                                </div>
+                                <img src={playerImg} alt={`${player} Avatar`} className="player-avatar" />
+                            </li>
+                        )) : null}
+                    </ul>
                 </div>
             </div>
 

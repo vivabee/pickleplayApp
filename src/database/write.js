@@ -1,4 +1,4 @@
-import { collection, addDoc, updateDoc, doc, arrayUnion, runTransaction } from "firebase/firestore";
+import { collection, addDoc, updateDoc, doc, runTransaction } from "firebase/firestore";
 import { auth, db } from "./config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
@@ -34,10 +34,6 @@ export async function save2(playerName, sessionId) {
         return false; // Return false if update fails
     }
 }
-
-
-
-
 
 
 

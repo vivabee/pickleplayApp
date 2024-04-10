@@ -80,8 +80,8 @@ export default function App() {
                                         path='/sessions'
                                         element={<Sessions sessions={sessions} />}
                                     />
-                                    <Route path="/addplayer" element={<AddPlayer />} />
-                    {/*                 <Route path="/addplayer/:sessionId" element={<AddPlayer />} /> */}
+                                {/*  <Route path="/addplayer" element={<AddPlayer />} /> */}
+                                { <Route path="/addplayer/:sessionId" element={<AddPlayer />} /> }
                                 </>
                             )}
                             <Route path="/login" element={<Login />} />

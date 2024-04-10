@@ -63,3 +63,27 @@ export async function logout() {
     
   }
 }
+
+
+export async function load2(sessionId) {
+  try {
+    // Fetch the session document based on session ID
+    const sessionDoc = await getDoc(doc(db, 'session', sessionId));
+    
+    if (!sessionDoc.exists()) {
+      // Session document not found, return undefined
+      return undefined;
+    }
+
+    // Extract session data
+    const sessionData = {
+      id: sessionDoc.id,
+      ...sessionDoc.data(),
+    };
+
+    return sessionData; // Return session data
+  } catch (error) {
+    console.error('Failed to load session data:', error);
+    throw new Error('Failed to load session data');
+  }
+}

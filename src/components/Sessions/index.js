@@ -7,9 +7,10 @@ import { collection, query, where, getDocs } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
 
 
-export default function Sessions({ onStatusChange, onSessionRemove, onClearSessions }) {
+export default function Sessions({ onStatusChange }) {
   const [user, loading] = useAuthState(auth);
   const [userSessions, setUserSessions] = useState([]);
+  
 
   useEffect(() => {
     const fetchSessions = async () => {
@@ -37,8 +38,6 @@ export default function Sessions({ onStatusChange, onSessionRemove, onClearSessi
             <div key={index} className="session">
               <Session
                 session={session}
-                onStatusChange={onStatusChange}
-                onSessionRemove={onSessionRemove}
               />
             </div>
           ))}
