@@ -37,3 +37,41 @@
    .login div {
      margin-top: 7px;
    }
+
+   ul {
+    list-style-type: none; // Remove the bullets
+  }
+
+  .player-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .player-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px; /* Add margin between list items */
+  }
+  
+  .player-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .player-img {
+    width: 50px; /* Set width for the player image */
+    height: 50px; /* Set height for the player image */
+    margin-right: 10px; /* Add margin between image and player name */
+  }
+
+  .addplayerinput {
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
+    padding-bottom: 20px;
+  }
+
+  input, button {
+    font-family: "McLaren", cursive;
+  }

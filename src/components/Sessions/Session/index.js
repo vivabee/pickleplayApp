@@ -50,13 +50,6 @@ export default function Session(props) {
                 <p className="value">{props.session.orgName}</p>
             </div>
 
-            {/* Display the document ID */}
-            <div className="session-info">
-                <p className="label">Document ID: </p>
-                <div className="value">{props.session.id}</div>
-            </div>
-
-
             {console.log(props.session.players)}
 
             <div className="session-info">
@@ -78,9 +71,9 @@ export default function Session(props) {
 
             {/* Link to add player */}
             <div className="session-info">
-                <p className="label">Add Player: </p>
                 {/* Pass session id as a prop to AddPlayer component */}
-                <Link to={`/addplayer/${props.session.id}`}>Add Player</Link>
+                <div className='buttonArea'></div>
+                <Link to={`/addplayer/${props.session.id}`} className="button">Add / Remove Player</Link>
             </div>
         </div>
     );

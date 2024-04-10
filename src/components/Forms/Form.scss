@@ -1,12 +1,18 @@
-.form-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  margin-bottom: 20px;
-  padding: 20px 20px 20px 20px;
-  width: 250px;
-  justify-self: center;
-  border: #0056b3 2px;
+.form-page {
+  display: flex; /* Use flexbox */
+  align-items: center; /* Center vertically */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+}
 
+.form-container {
+  flex: 1 1 100%; /* Take up full width */
+  max-width: 400px; /* Adjust max-width as needed */
+  margin: 0 auto; /* Center horizontally */
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ccc; /* Border styles */
+  background-color: #fff;
+  
   h2 {
     margin-bottom: 10px;
     color: #1c1f4c;
@@ -37,11 +43,8 @@
     cursor: pointer;
     transition: background-color 0.3s;
     text-align: center;
-    width: 250px;
-
-    &:hover {
-      background-color: #f7cf50;
-    }
+    width: 100%; /* Button width set to 100% */
+    margin-top: 10px; /* Add margin at the top */
   }
 
   .error-message {
@@ -69,4 +72,44 @@
     }
   }
 
+}
+
+.additional-content {
+  flex: 1 1 100%; /* Take up full width */
+  margin-top: 20px; /* Add margin at the top */
+  max-width: 400px; /* Adjust max-width as needed */
+}
+
+.faq-section {
+  max-width: 100%; /* Adjust max-width as needed */
+  padding: 20px; /* Add padding for spacing */
+
+  .faq-question {
+    font-size: 24px; /* Question font size */
+    font-weight: bold; /* Question font weight */
+    margin-bottom: 10px; /* Add spacing below the question */
+  }
+
+  .faq-answer {
+    font-size: 16px; /* Answer font size */
+    margin-bottom: 20px; /* Add spacing below the answer */
+  }
+
+  .faq-submit-court {
+    margin-top: 20px; /* Add spacing above the submit court link */
+    font-size: 16px; /* Submit court link font size */
+    color: blue; /* Submit court link color */
+    text-decoration: underline; /* Underline the submit court link */
+    cursor: pointer; /* Show pointer cursor on hover */
+  }
+}
+
+@media (max-width: 600px) {
+  .form-container {
+    max-width: 100%; /* Adjust max-width as needed */
+  }
+
+  .additional-content {
+    max-width: 100%; /* Adjust max-width as needed */
+  }
 }

@@ -83,6 +83,7 @@ export default function AddPlayer() {
 import React, { useState, useEffect } from "react";
 import * as database from '../../../database';
 import "./addplayer.scss";
+import playerImg from '../../assets/player1.png';
 
 export default function AddPlayer() {
   // Extract sessionId from the URL
@@ -109,7 +110,7 @@ export default function AddPlayer() {
         console.error('Error loading players:', error);
       }
     };
-  
+
     fetchPlayers();
   }, [sessionId]);
 
@@ -127,50 +128,55 @@ export default function AddPlayer() {
   };
 
   const handleRemovePlayer = async (index) => {
-      try {
-          // Create a copy of the players array
-          const updatedPlayers = [...players];
-          // Remove the player at the specified index
-          updatedPlayers.splice(index, 1);
-          // Update the players array in the database using the save function
-          const isUpdated = await database.save(updatedPlayers, sessionId);
-          if (!isUpdated) {
-              console.error('Failed to update session with players');
-          }
-          // Update the local state
-          setPlayers(updatedPlayers);
-      } catch (error) {
-          console.error('Error removing player:', error);
+    try {
+      // Create a copy of the players array
+      const updatedPlayers = [...players];
+      // Remove the player at the specified index
+      updatedPlayers.splice(index, 1);
+      // Update the players array in the database using the save function
+      const isUpdated = await database.save(updatedPlayers, sessionId);
+      if (!isUpdated) {
+        console.error('Failed to update session with players');
       }
+      // Update the local state
+      setPlayers(updatedPlayers);
+    } catch (error) {
+      console.error('Error removing player:', error);
+    }
   };
 
   return (
     <div className="addplayer-container" >
       <div>
-        <input
-          type="text"
-          value={playerName}
-          onChange={(e) => setPlayerName(e.target.value)}
-          placeholder="Enter player name"
-        />
-        <button onClick={handleAddPlayer} disabled={players.length >= maxPlayers}>
-          Add Player
-        </button>
+      <h2 className="heading">Maximum of 4 Players</h2>
         {players.length < minPlayers && (
           <p>Please add at least {minPlayers - players.length} more player(s).</p>
         )}
-        <ul>
+        <ul className="player-list">
           {players.map((player, index) => (
-            <li key={index}>
-              {player}
+            <li key={index} className="player-item">
+              <div className="player-info">
+                <img src={playerImg} alt="Player" className="player-img" /> {/* Image */}
+                <span className="player-name">{player}</span>
+              </div>
               <button onClick={() => handleRemovePlayer(index)}>Remove</button>
             </li>
           ))}
         </ul>
-        <div>Document ID: {sessionId}</div>
+        <div className="addplayerinput">
+        <label>
+          <input
+            type="text"
+            value={playerName}
+            onChange={(e) => setPlayerName(e.target.value)}
+            placeholder="Enter player name"
+          />
+          </label>
+          <button onClick={handleAddPlayer} disabled={players.length >= maxPlayers}>
+            Add Player
+          </button>
+        </div>
       </div>
-     {/* Add console.log here */}
-    {console.log("Players:", players)}
     </div>
   );
 }
