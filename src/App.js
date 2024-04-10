@@ -35,6 +35,10 @@ export default function App() {
         fetchData();
     }, []);
 
+
+/*      useEffect(() => {
+        console.log('User:', user);
+    }, [user]); */
     const handleAddSession = async (description, status, courtName, dateTime, orgName) => {
         try {
             if (user) {
@@ -76,8 +80,8 @@ export default function App() {
                                         path='/sessions'
                                         element={<Sessions sessions={sessions} />}
                                     />
-                                    <Route path="/addplayer/:sessionId" element={<AddPlayer />} />
-
+                                    <Route path="/addplayer" element={<AddPlayer />} />
+                    {/*                 <Route path="/addplayer/:sessionId" element={<AddPlayer />} /> */}
                                 </>
                             )}
                             <Route path="/login" element={<Login />} />

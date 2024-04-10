@@ -1,6 +1,7 @@
 import React from 'react';
 import './index.scss';
 import pickleImage from "../../components/assets/pickle.jpg";
+import { Link } from 'react-router-dom';
 
 export default function HomePage() {
   return (
@@ -10,7 +11,7 @@ export default function HomePage() {
             <h1 className="heading">The Fastest way to organize play</h1>
             <p className="text">Recruit the perfect number of players every time and always know who’s in. It's never been easier to get out on the court!</p>
           <div className='buttonArea'>
-          <a href="/login" className="button">Create a game</a>
+          <Link to="/login" className="button">Create a game</Link>
           </div>
         </div>
       

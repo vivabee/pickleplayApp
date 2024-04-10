@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.scss';
 import MainMenu from '../MainMenu';
-import DashboardMenu from '../DashboardMenu'; // Import the DashboardMenu component
-import logo from '../assets/pickleplay_logo.png'; // Import your logo image
+import DashboardMenu from '../DashboardMenu'; 
+import logo from '../assets/pickleplay_logo.png'; 
 
-export default function Header({ isLoggedIn }) { // Pass isLoggedIn prop to determine which menu to render
+export default function Header({ isLoggedIn }) { 
     return (
     <>
         <header>
@@ -13,9 +13,9 @@ export default function Header({ isLoggedIn }) { // Pass isLoggedIn prop to dete
                     <img src={logo} alt="PicklePlay Logo" />
                 </Link>
             <div className='title'>PicklePlay</div>
-            <div className='subtitle'>Uniting Paddle and Ball in Sport</div>
+            <div className='subtitle'>A Pickleball Session Organization App</div>
         </header>
-        {isLoggedIn ? <DashboardMenu /> : <MainMenu />} {/* Render DashboardMenu if logged in, otherwise render MainMenu */}
+        {isLoggedIn ? <DashboardMenu /> : <MainMenu />}
     </>
     );
 }

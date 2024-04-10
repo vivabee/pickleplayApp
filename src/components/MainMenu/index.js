@@ -7,7 +7,7 @@ export default function MainMenu() {
     return (
         <nav className="main-nav">
             <Link to="/">Home</Link>
-            <Link to="/login">Login</Link>
+            <Link to="/login">Login/Register</Link>
             <Link to="/team">Team</Link>
 
         </nav>

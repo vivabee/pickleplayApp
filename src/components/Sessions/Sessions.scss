@@ -4,11 +4,13 @@
 }
 
 
-.session-container {
+.sessions-container {
   padding: 10px;
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: center; /* Align children vertically center */
+  align-items: center; /* Align children horizontally center */
 }
 
 .session-title {
@@ -62,4 +64,18 @@
     padding: 12px 24px; // Increased padding
     font-size: 18px; // Increased font size
   }
+}
+.buttonArea {
+  display: flex; /* Enable flexbox */
+  justify-content: center; /* Center the single element horizontally */
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }

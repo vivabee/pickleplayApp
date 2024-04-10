@@ -1,8 +1,10 @@
 .addplayer-container{
-    max-width: 1200px;
-   margin: 0 auto;
-   background-color: #fff;
-   padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding-top: 20px;
  }
  
  .login {

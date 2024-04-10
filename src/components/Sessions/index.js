@@ -4,6 +4,8 @@ import './Sessions.scss';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, db } from '../../database/config';
 import { collection, query, where, getDocs } from 'firebase/firestore';
+import { Link } from 'react-router-dom';
+
 
 export default function Sessions({ onStatusChange, onSessionRemove, onClearSessions }) {
   const [user, loading] = useAuthState(auth);
@@ -42,7 +44,10 @@ export default function Sessions({ onStatusChange, onSessionRemove, onClearSessi
           ))}
         </>
       ) : (
+        <div>
         <h2>No current sessions, create your session to Start</h2>
+        <div className='buttonArea' ><Link to="/createsession" className='button'>Create a session</Link></div>
+        </div>
       )}
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import * as database from '../../../database';
-
+import "./addplayer.scss";
 export default function AddPlayer() {
   const { sessionId } = useParams(); // Access sessionId from URL parameters
   const [players, setPlayers] = useState([]);
@@ -28,19 +28,6 @@ export default function AddPlayer() {
     fetchPlayers();
   }, [sessionId]); // Fetch players whenever sessionId changes
 
-  // const handleAddPlayer = async () => {
-  //   if (playerName.trim() !== "" && players.length < maxPlayers) {
-  //     const updatedPlayers = [...players, playerName.trim()];
-  //     setPlayers(updatedPlayers);
-  //     // Call the save function to update the session with the new players
-  //     const isUpdated = await database.save(updatedPlayers, sessionId);
-  //     if (!isUpdated) {
-  //       console.error('Failed to update session with players');
-  //     }
-  //     setPlayerName("");
-  //   }
-  // };
-
 
 
   const handleAddPlayer = async () => {
@@ -55,10 +42,6 @@ export default function AddPlayer() {
       setPlayerName("");
     }
   };
-
-
-
-
 
   const handleRemovePlayer = (index) => {
     const updatedPlayers = [...players];
@@ -89,9 +72,9 @@ export default function AddPlayer() {
             </li>
           ))}
         </ul>
+        <div>Document ID: {sessionId}</div>
       </div>
-      {/* Display the document ID */}
-      <p>Document ID: {sessionId}</p>
+     
     </div>
   );
 }
