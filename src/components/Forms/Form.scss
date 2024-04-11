@@ -13,7 +13,7 @@
   margin-bottom: 20px;
   padding: 20px;
   border: 1px solid #ccc; /* Border styles */
-  background-color: #faf3e5;
+  background-color: #fdecca;
   
   
   h2 {
@@ -79,6 +79,28 @@
 .form-container:hover {
   /* Add styles to apply when the form container is hovered over */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center horizontally */
+  padding-bottom: 20px;
+  margin: 0 auto; /* Center horizontally */
+}
+
+
+.card {
+  background-color: #faefc2;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(45, 120, 195, 0.1);
+  padding: 20px;
+  margin: 20px;
+  max-width: 300px;  transition: box-shadow 0.3s ease-in-out;
+  
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 // .additional-content {

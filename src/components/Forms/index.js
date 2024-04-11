@@ -167,6 +167,22 @@ export default function Forms({ onAddSession }) {
                         
                     </div>
                 </div> */}
+                 <div className="card-container">
+            <div className="card">
+              <h2 className="heading">Can I reserve a court through Pickleheads?</h2>
+              <p>No, Pickleplay is separate from a facility's court reservation system. Players use Pickleheads to organize games with other players. If you'd like to reserve a court, reach out to the facility directly. We do our best to include up-to-date reservation information on every court page.</p>
+            </div>
+
+            <div className="card">
+              <h2 className="heading">Is there a Pickleplay mobile app?</h2>
+              <p>We're working on it right now! Native apps for iOS and Android will be ready in the next few months. In the meantime, we designed our site to work extremely well on mobile. Players can choose to receive SMS notifications and seamlessly sign up for sessions from their phone.</p>
+            </div>
+
+            <div className="card">
+              <h2 className="heading">I don't see the court that we play at. What should I do?</h2>
+              <p>You can submit a new court to our database. We typically approve new courts within 24 hours.</p>
+            </div>            
+          </div>
                 
             </div>
         </>
