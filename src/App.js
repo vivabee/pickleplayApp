@@ -175,14 +175,13 @@ export default function App() {
                                 <>
                                     <Route path="/createsession" element={<Forms onAddSession={handleAddSession} />} />
                                     <Route path="/sessions" element={<Sessions sessions={sessions} />} />
-                                    {/* <Route path="/addplayer" element={<AddPlayer />} /> */}
                                     <Route path="/addplayer/:sessionId" element={<AddPlayer />} />
-                                    <Route path="/team" element={<Team />} />
                                 </>
                             ) : (
                                 <>
                                     <Route path="/login" element={<Login />} />
                                     <Route path="/register" element={<Register />} />
+                                    <Route path="/team" element={<Team />} />
                                 </>
                             )}
                             <Route path="*" element={<PageNotFound />} />

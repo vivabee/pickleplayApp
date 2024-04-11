@@ -78,21 +78,21 @@ function Register() {
   const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
-
   const register = async (e) => {
     e.preventDefault(); // Prevent default form submission behavior
-
+  
     try {
       if (!name || !email || !password) {
         throw new Error("Please enter your name, email, and password.");
       }
-      await registerWithEmailAndPassword(name, email, password);
-      // If registration is successful, navigate to '/createsession' route
-      navigate("/createsession");
+      const registrationSuccessful = await registerWithEmailAndPassword(name, email, password);
+      if (registrationSuccessful) {
+        // If registration is successful, navigate to '/createsession' route
+        navigate("/createsession");
+      }
     } catch (error) {
       // Display error message to the user
       setErrorMessage(error.message);
-      navigate("/login");
     }
   };
 
@@ -101,7 +101,9 @@ function Register() {
       <h3>Register</h3>
       <div className="register">
         <div className="register__container">
-          {errorMessage && <div className="error-message">{errorMessage}</div>}
+          
+           {/* Display error message */}
+           {errorMessage && <div className="error-message">{errorMessage}</div>}
           <form onSubmit={register}>
             <input
               type="text"

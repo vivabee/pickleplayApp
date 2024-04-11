@@ -56,7 +56,7 @@ export async function addSession(description, status, courtName, dateTime, orgNa
 }
 
 
-export const registerWithEmailAndPassword = async (name, email, password) => {
+/* export const registerWithEmailAndPassword = async (name, email, password) => {
     try {
         const res = await createUserWithEmailAndPassword(auth, email, password);
         const user = res.user;
@@ -70,4 +70,28 @@ export const registerWithEmailAndPassword = async (name, email, password) => {
         console.error(err);
         alert(err.message);
     }
-};
+}; */
+
+export const registerWithEmailAndPassword = async (name, email, password) => {
+    try {
+      // Register the user with Firebase Authentication
+      const res = await createUserWithEmailAndPassword(auth, email, password);
+      const user = res.user;
+  
+      // Add user information to Firestore
+      await addDoc(collection(db, "users"), {
+        uid: user.uid,
+        name,
+        authProvider: "local",
+        email,
+      });
+  
+      // Navigate to the '/createsession' page after successful registration
+      return true; // Indicate successful registration
+    } catch (err) {
+      // Log and handle registration errors
+      console.error("Registration Error:", err);
+      alert(err.message);
+      return false; // Indicate failed registration
+    }
+  };
