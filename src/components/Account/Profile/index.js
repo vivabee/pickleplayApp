@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth, db } from '../../../database/config';
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { auth } from '../../../database/config';
+import { loadUser } from '../../../database/read'; // Import the loadUser function from read.js
 import "./Profile.scss";
+
 export default function Profile() {
   const [user, loading] = useAuthState(auth);
   const [userInfo, setUserInfo] = useState(null); // State to hold user information
@@ -12,10 +13,8 @@ export default function Profile() {
       try {
         if (!user || loading) return;
 
-        // Fetch user information from the "users" collection
-        const userQuery = query(collection(db, 'users'), where('uid', '==', user.uid));
-        const userSnapshot = await getDocs(userQuery);
-        const userData = userSnapshot.docs.map(doc => doc.data())[0]; // Get the first document's data
+        // Call the loadUser function to fetch user information
+        const userData = await loadUser();
         setUserInfo(userData);
       } catch (error) {
         console.error('Error fetching user data:', error);

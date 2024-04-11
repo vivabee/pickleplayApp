@@ -1,4 +1,4 @@
-import { collection, getDocs, getDoc, doc } from 'firebase/firestore';
+import { collection, getDocs, getDoc, doc, query,where } from 'firebase/firestore';
 import { auth, db } from './config';
 import { signOut } from "firebase/auth"; // Import the signOut function from "firebase/auth"
 
@@ -85,5 +85,20 @@ export async function load2(sessionId) {
   } catch (error) {
     console.error('Failed to load session data:', error);
     throw new Error('Failed to load session data');
+  }
+}
+
+export async function loadUser() {
+  try {
+    if (!auth.currentUser) return null;
+
+    // Fetch user information from the Firestore database
+    const userQuery = query(collection(db, 'users'), where('uid', '==', auth.currentUser.uid));
+    const userSnapshot = await getDocs(userQuery);
+    const userData = userSnapshot.docs.map(doc => doc.data())[0]; // Get the first document's data
+    return userData;
+  } catch (error) {
+    console.error('Failed to load user data:', error);
+    throw new Error('Failed to load user data');
   }
 }
