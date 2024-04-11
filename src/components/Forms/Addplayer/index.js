@@ -83,6 +83,7 @@ export default function AddPlayer() {
 import React, { useState, useEffect } from "react";
 import * as database from '../../../database';
 import "./addplayer.scss";
+import InvitePlayer from '../../InvitePlayer'
 import playerImg from '../../assets/player1.png';
 
 export default function AddPlayer() {
@@ -175,7 +176,8 @@ export default function AddPlayer() {
           <button onClick={handleAddPlayer} disabled={players.length >= maxPlayers}>
             Add Player
           </button>
-        </div>
+          </div>
+          <div><InvitePlayer /></div>
       </div>
     </div>
   );
