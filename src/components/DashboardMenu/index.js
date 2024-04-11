@@ -16,6 +16,7 @@ export default function DashboardMenu() {
         <nav className="main-nav">
             <Link to="/createsession">Create Session</Link>
             <Link to="/sessions">Session</Link>
+            <Link to="/profile" >My Profile </Link>
             <Link to="/login" onClick={handleLogout} >Logout </Link>
         </nav>
     );

@@ -113,6 +113,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './database/config';
 import Register from "./components/Account/Register"; 
 import AddPlayer from "./components/Forms/Addplayer";
+import Profile from "./components/Account/Profile";
 
 export default function App() {
     const [sessions, setSessions] = useState([]);
@@ -176,6 +177,7 @@ export default function App() {
                                     <Route path="/createsession" element={<Forms onAddSession={handleAddSession} />} />
                                     <Route path="/sessions" element={<Sessions sessions={sessions} />} />
                                     <Route path="/addplayer/:sessionId" element={<AddPlayer />} />
+                                    <Route path="/profile" element={<Profile />} />
                                 </>
                             ) : (
                                 <>
