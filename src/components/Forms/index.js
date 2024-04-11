@@ -145,8 +145,11 @@ export default function Forms({ onAddSession }) {
                     </label>
                     <button>Add</button>
                 </form>
-                <div className="additional-content">
+
+                {/* <div className="additional-content">
+                   
                     <div className="faq-section">
+                        
                         <div className="faq-question">Can I reserve a court through Pickleheads?</div>
                         <div className="faq-answer">
                             No, Pickleplay is separate from a facility's court reservation system. Players use Pickleheads to organize games with other players. If you'd like to reserve a court, reach out to the facility directly. We do our best to include up-to-date reservation information on every court page.
@@ -161,8 +164,10 @@ export default function Forms({ onAddSession }) {
                         <div className="faq-answer">
                             You can submit a new court to our database. We typically approve new courts within 24 hours.
                         </div>
+                        
                     </div>
-                </div>
+                </div> */}
+                
             </div>
         </>
     );
