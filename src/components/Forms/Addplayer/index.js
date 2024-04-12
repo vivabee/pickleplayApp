@@ -63,7 +63,8 @@ export default function AddPlayer() {
   return (
     <div className="addplayer-container" >
       <div>
-      <h2 className="heading">Maximum of 4 Players</h2>
+      <h2 className="heading">Add Players</h2>
+      <p>Maximum of 4 Players</p>
         {players.length < minPlayers && (
           <p>Please add at least {minPlayers - players.length} more player(s).</p>
         )}
