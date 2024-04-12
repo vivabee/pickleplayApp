@@ -3,6 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../../database/config';
 import { loadUser } from '../../../database/read'; 
 import "./Profile.scss";
+import userAvatar from '../../assets/player1.png';
 
 export default function Profile() {
   const [user, loading] = useAuthState(auth);
@@ -32,6 +33,9 @@ export default function Profile() {
           <p>Email: {userInfo.email}</p>
         </div>
       )}
+        <div>
+        <img src={userAvatar} alt="User" />
+        </div>
     </div>
   );
 }

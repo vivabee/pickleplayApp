@@ -74,8 +74,6 @@ export default function Session(props) {
                 </div>
             </div>
 
-
-
             <div className="session-info">
                 <div className='buttonArea'></div>
                 <Link to={`/addplayer/${props.session.id}`} className="session-button">Add / Remove Player</Link>

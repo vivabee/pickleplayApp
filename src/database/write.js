@@ -15,7 +15,6 @@ export async function save(data, sessionId) {
     }
 }
 
-
 export async function save2(playerName, sessionId) {
     try {
         const docRef = doc(db, 'session', sessionId);
@@ -34,9 +33,6 @@ export async function save2(playerName, sessionId) {
         return false; // Return false if update fails
     }
 }
-
-
-
 
 export async function addSession(description, status, courtName, dateTime, orgName, user) {
     try {
