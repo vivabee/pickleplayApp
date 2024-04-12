@@ -11,53 +11,50 @@ function Register() {
   const navigate = useNavigate();
   const register = async (e) => {
     e.preventDefault(); // Prevent default form submission behavior
-  
+
     try {
       if (!name || !email || !password) {
         throw new Error("Please enter your name, email, and password.");
       }
       const registrationSuccessful = await registerWithEmailAndPassword(name, email, password);
       if (registrationSuccessful) {
-        // If registration is successful, navigate to '/createsession' route
         navigate("/createsession");
       }
     } catch (error) {
-      // Display error message to the user
       setErrorMessage(error.message);
     }
   };
 
   return (
     <div className="register-container">
-      <h3>Register</h3>
+      <h3>New Here? Register Now!</h3>
       <div className="register">
-        <div className="register__container">
-          
-           {/* Display error message */}
-           {errorMessage && <div className="error-message">{errorMessage}</div>}
+        <div className="register-container">
+
+          {errorMessage && <div className="error-message">{errorMessage}</div>}
           <form onSubmit={register}>
             <input
               type="text"
-              className="register__textBox"
+              className="register-textBox"
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Full Name"
             />
             <input
               type="text"
-              className="register__textBox"
+              className="register-textBox"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="E-mail Address"
             />
             <input
               type="password"
-              className="register__textBox"
+              className="register-textBox"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
             />
-            <button type="submit" className="register__btn">
+            <button type="submit" className="register-btn">
               Register
             </button>
           </form>

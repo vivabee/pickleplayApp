@@ -1,74 +1,38 @@
 .session-container {
   max-width: 1200px;
-  margin: 0 auto;
-
-  @media (max-width: 600px) { 
-    display: flex;
-    justify-content: flex-start; /* Align items to the start of the flex container (left-aligned) */
-  }
-}
-
-.session-title {
-  font-size: 20px;
-  display: flex;
-  justify-content: flex-start;
-  
-  @media (max-width: 600px) {
-    font-size: 40px;
-}
-
-}
-
-.session-info {
-  font-size: 18px;
-  color: #666;
-}
-
-.session-info p {
-  display: inline; 
-  margin: 0; 
-  
+  background-color: #fff;
+  padding: 20px;
 }
 
 .label {
-  font-size: 15px;
-  font-weight: bold;
-  margin-right: 5px; 
-  
-  @media (max-width: 600px) { 
-    font-size: 25px;
-  }
-
+  font-weight: bold; 
+  color: #6C8E5A;
 }
 
 .player-list {
-  list-style-type: none;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
 }
 
 .player-item {
-  width: 25%; /* Four columns */
-  padding: 10px; /* Adjust as needed */
+  width: 25%;
+  padding: 10px;
   box-sizing: border-box;
   text-align: center;
-  margin-bottom: 20px; /* Adjust as needed */
-
-  @media (max-width: 600px) {
-    .player-item {
-        width: 100%; /* Single column for smaller screens */
-    }
-}
+  margin-bottom: 20px; 
+ 
 }
 
 .player-info {
-  margin-bottom: 10px; /* Adjust as needed */
+  margin-bottom: 10px; 
 }
 
 .player-avatar {
   max-width: 100%;
   height: auto;
-  border-radius: 50%; /* If circular avatar */
-  /* Additional styling for the avatar image */
+}
+
+.session-button {
+  margin: 10px;
 }

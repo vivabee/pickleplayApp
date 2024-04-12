@@ -113,11 +113,11 @@ export default function Forms({ onAddSession }) {
                     </label>
                     <label className="time-select">
                         Time:
-                        <div className="time-select__input">
+                        <div className="time-select_input">
                             <select
                                 value={hour}
                                 onChange={(event) => setHour(event.target.value)}
-                                className="time-select__hour"
+                                className="time-select_hour"
                             >
                                 {[...Array(24).keys()].map((h) => (
                                     <option key={h} value={h < 10 ? `0${h}` : `${h}`}>{h < 10 ? `0${h}` : `${h}`}</option>
@@ -127,7 +127,7 @@ export default function Forms({ onAddSession }) {
                             <select
                                 value={minute}
                                 onChange={(event) => setMinute(event.target.value)}
-                                className="time-select__minute"
+                                className="time-select_minute"
                             >
                                 <option value="00">00</option>
                                 <option value="30">30</option>
@@ -146,44 +146,23 @@ export default function Forms({ onAddSession }) {
                     <button>Add</button>
                 </form>
 
-                {/* <div className="additional-content">
-                   
-                    <div className="faq-section">
-                        
-                        <div className="faq-question">Can I reserve a court through Pickleheads?</div>
-                        <div className="faq-answer">
-                            No, Pickleplay is separate from a facility's court reservation system. Players use Pickleheads to organize games with other players. If you'd like to reserve a court, reach out to the facility directly. We do our best to include up-to-date reservation information on every court page.
-                        </div>
-
-                        <div className="faq-question">Is there a Pickleplay mobile app?</div>
-                        <div className="faq-answer">
-                            We're working on it right now! Native apps for iOS and Android will be ready in the next few months. In the meantime, we designed our site to work extremely well on mobile. Players can choose to receive SMS notifications and seamlessly sign up for sessions from their phone.
-                        </div>
-
-                        <div className="faq-question">I don't see the court that we play at. What should I do?</div>
-                        <div className="faq-answer">
-                            You can submit a new court to our database. We typically approve new courts within 24 hours.
-                        </div>
-                        
+                <div className="card-container">
+                    <div className="card">
+                        <h2 className="heading">Can I reserve a court through PicklePlay?</h2>
+                        <p>No, Pickleplay is separate from a facility's court reservation system. Players use PicklePlay to organize games with other players.</p>
                     </div>
-                </div> */}
-                 <div className="card-container">
-            <div className="card">
-              <h2 className="heading">Can I reserve a court through Pickleheads?</h2>
-              <p>No, Pickleplay is separate from a facility's court reservation system. Players use Pickleheads to organize games with other players. If you'd like to reserve a court, reach out to the facility directly. We do our best to include up-to-date reservation information on every court page.</p>
-            </div>
 
-            <div className="card">
-              <h2 className="heading">Is there a Pickleplay mobile app?</h2>
-              <p>We're working on it right now! Native apps for iOS and Android will be ready in the next few months. In the meantime, we designed our site to work extremely well on mobile. Players can choose to receive SMS notifications and seamlessly sign up for sessions from their phone.</p>
-            </div>
+                    <div className="card">
+                        <h2 className="heading">Is there a Pickleplay mobile app?</h2>
+                        <p>We're working on it right now! Native apps for iOS and Android will be ready in the next few months. </p>
+                    </div>
 
-            <div className="card">
-              <h2 className="heading">I don't see the court that we play at. What should I do?</h2>
-              <p>You can submit a new court to our database. We typically approve new courts within 24 hours.</p>
-            </div>            
-          </div>
-                
+                    <div className="card">
+                        <h2 className="heading">I don't see the court that we play at. What should I do?</h2>
+                        <p>You can submit a new court to our database. We typically approve new courts within 24 hours.</p>
+                    </div>
+                </div>
+
             </div>
         </>
     );

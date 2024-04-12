@@ -1,68 +1,12 @@
 .addplayer-container{
-  display: flex;
-  justify-content: center;
   max-width: 1200px;
   margin: 0 auto;
   background-color: #fff;
   padding-top: 20px;
  }
  
- .login {
-     max-width: 1200px;
-     margin: 0 auto;
-     display: flex;
-     align-items: center;
-     justify-content: center;
- 
-   }
-   .login__container {
-     display: flex;
-     flex-direction: column;
-     text-align: center;
-     padding: 30px;
-   }
-   .login__textBox {
-     padding: 10px;
-     font-size: 18px;
-     margin-bottom: 10px;
-   }
-   .login__btn {
-     padding: 10px;
-     font-size: 18px;
-     margin-bottom: 10px;
-     border: none;
-     color: white;
-     background-color: #007bff;
-   }
-   .login div {
-     margin-top: 7px;
-   }
-
    ul {
-    list-style-type: none; // Remove the bullets
-  }
-
-  .player-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .player-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px; /* Add margin between list items */
-  }
-  
-  .player-info {
-    display: flex;
-    align-items: center;
-  }
-  
-  .player-img {
-    width: 50px; /* Set width for the player image */
-    height: 50px; /* Set height for the player image */
-    margin-right: 10px; /* Add margin between image and player name */
+    list-style-type: none; 
   }
 
   .addplayerinput {
@@ -76,3 +20,28 @@
   input, button {
     font-family: "McLaren", cursive;
   }
+
+  
+.add-player-list {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.add-player-item {
+  width: 25%;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  margin-bottom: 20px; 
+ 
+}
+
+.add-player-info {
+  margin-bottom: 10px; 
+}
+
+.add-player-avatar {
+  max-width: 100%;
+  height: auto;
+}

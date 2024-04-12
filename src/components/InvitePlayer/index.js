@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './InvitePlayer.scss'; // Import the SCSS file
+import './InvitePlayer.scss';
 
 export default function InvitePlayer() {
     const [copied, setCopied] = useState(false);
@@ -9,7 +9,7 @@ export default function InvitePlayer() {
         navigator.clipboard.writeText(url)
             .then(() => {
                 setCopied(true);
-                setTimeout(() => setCopied(false), 3000); // Reset copied state after 3 seconds
+                setTimeout(() => setCopied(false), 3000);
             })
             .catch((error) => {
                 console.error('Error copying link:', error);

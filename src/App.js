@@ -111,16 +111,16 @@ import Team from "./pages/Team";
 import * as database from './database';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './database/config';
-import Register from "./components/Account/Register"; 
+import Register from "./components/Account/Register";
 import AddPlayer from "./components/Forms/Addplayer";
 import Profile from "./components/Account/Profile";
 
 export default function App() {
     const [sessions, setSessions] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [user] = useAuthState(auth); // Get user object from authentication
-    const navigate = useNavigate(); // Initialize useNavigate hook
-    const [isLoggedIn, setIsLoggedIn] = useState(false); // Track user login state
+    const [user] = useAuthState(auth); 
+    const navigate = useNavigate(); 
+    const [isLoggedIn, setIsLoggedIn] = useState(false); 
 
     useEffect(() => {
         const fetchData = async () => {
@@ -135,20 +135,16 @@ export default function App() {
         };
 
         fetchData();
-        // Update isLoggedIn state based on user authentication
-        // Update isLoggedIn state based on user authentication
         setIsLoggedIn(user !== null);
     }, [user]);
 
-    
+
     const handleAddSession = async (description, status, courtName, dateTime, orgName) => {
         try {
             if (user) {
-                // Pass the user object to addSession function
                 const newSession = await database.addSession(description, status, courtName, dateTime, orgName, user);
                 if (newSession) {
                     setSessions([...sessions, newSession]);
-                    // After adding a session, navigate to the sessions page
                     navigate('/sessions');
                 } else {
                     console.error('Failed to add session');
@@ -161,10 +157,21 @@ export default function App() {
         }
     };
 
+    const handleSessionRemove = async (id) => {
+        const filteredSessions = sessions.filter(session => session.id !== id);
+        setSessions(filteredSessions);
+
+        const removed = await database.remove(id);
+        if (!removed) {
+            console.error('Failed to remove session with ID:', id);
+        }
+    }
+
+
     return (
         <>
-            <Header isLoggedIn={isLoggedIn} />
-        
+            <Header isLoggedIn={isLoggedIn} userName={user?.name} />
+
             {isLoading ? (
                 <Loading />
             ) : (
@@ -175,7 +182,10 @@ export default function App() {
                             {user ? (
                                 <>
                                     <Route path="/createsession" element={<Forms onAddSession={handleAddSession} />} />
-                                    <Route path="/sessions" element={<Sessions sessions={sessions} />} />
+                                    <Route
+                                        path="/sessions"
+                                        element={<Sessions sessions={sessions} onSessionRemove={handleSessionRemove} />}
+                                    />
                                     <Route path="/addplayer/:sessionId" element={<AddPlayer />} />
                                     <Route path="/profile" element={<Profile />} />
                                 </>

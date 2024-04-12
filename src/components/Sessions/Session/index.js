@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import './Session.scss'; // Import the SCSS file
 import playerImg from '../../assets/player1.png';
+import { RiDeleteBinLine } from "react-icons/ri";
 
 export default function Session(props) {
     const formatDate = (dateString) => {
@@ -27,27 +28,32 @@ export default function Session(props) {
         return `${hour < 10 ? '0' : ''}${hour}:${minute === 0 ? '00' : '30'}`;
     };
 
+    const handleRemoveClick = () => {
+        const id = props.session.id;
+        props.onSessionRemove(id);
+    }
+
     return (
         <div className="session-container">
-            <h3 className='session-title'>{props.session.description}</h3>
+
             <div className="session-info">
-                <p className="label">Court Name: </p>
-                <p className="value">{props.session.courtName}</p>
+                <span className="label">Session Name: </span>{props.session.description}
             </div>
 
             <div className="session-info">
-                <p className="label">Date: </p>
-                <p className="value">{formatDate(props.session.dateTime)}</p>
+                <span className="label">Court Name: </span> {props.session.courtName}
             </div>
 
             <div className="session-info">
-                <p className="label">Time: </p>
-                <p className="value">{formatTime(props.session.dateTime)}</p>
+                <span className="label">Date: </span>{formatDate(props.session.dateTime)}
             </div>
 
             <div className="session-info">
-                <p className="label">Organizer Name: </p>
-                <p className="value">{props.session.orgName}</p>
+                <span className="label">Time: </span>{formatTime(props.session.dateTime)}
+            </div>
+
+            <div className="session-info">
+                <span className="label">Organizer Name: </span>{props.session.orgName}
             </div>
 
             {console.log(props.session.players)}
@@ -69,11 +75,11 @@ export default function Session(props) {
             </div>
 
 
-            {/* Link to add player */}
+
             <div className="session-info">
-                {/* Pass session id as a prop to AddPlayer component */}
                 <div className='buttonArea'></div>
-                <Link to={`/addplayer/${props.session.id}`} className="button">Add / Remove Player</Link>
+                <Link to={`/addplayer/${props.session.id}`} className="session-button">Add / Remove Player</Link>
+                <button className="session-button" onClick={handleRemoveClick}><RiDeleteBinLine /></button>
             </div>
         </div>
     );

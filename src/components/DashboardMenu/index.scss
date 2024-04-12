@@ -3,17 +3,23 @@
   justify-content: center;
   margin-top: 20px;
 
+
   a {
     color: #2F76BB;
-    padding: 5px 10px;
     border-radius: 4px;
-    margin-right: 15px;
     margin-bottom: 10px;
     text-decoration: none;
     font-size: 20px;
 
     &:hover {
-      border-bottom: 5px solid #FBC270; /* Add a colored line when hovering */
+      border-bottom: 5px solid #FBC270
+      
+    }
+
+    @media (max-width: 600px) {
+      max-width: 100%; 
+      margin-right: 15px;
+      padding: 5px 10px;
     }
   
   }
